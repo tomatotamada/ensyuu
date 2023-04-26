@@ -11,7 +11,7 @@ int main(){
             if(factorial(x)<=0){
                 printf("桁数の限界で表示できません\n");
             }else{
-                printf("%ld = %ld\n",x,factorial(x));
+                printf("%ld! = %ld\n",x,factorial(x));
             }
         }else{
             if(factorial(x)<=0){
