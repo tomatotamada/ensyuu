@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int rn(int x);
+int countfn(int c);
 
 int main(){
     int x,y,i,j,p ;
@@ -20,7 +21,7 @@ int main(){
 
         //x = rn(x);
     }
-    printf("%ld\n",sizeof(count[0]) / sizeof(count[0][0]));
+    printf("",);
 
 }
 
@@ -30,4 +31,15 @@ int rn(int x){
         x = 10;
     }*/
     return x;
+}
+
+int countfn(int c){
+    int i,j;
+    for(i = 0;i < 11;i++){
+        for(j = 0;j < y;j++){
+            if(i == )
+
+        }
+    }
+
 }
