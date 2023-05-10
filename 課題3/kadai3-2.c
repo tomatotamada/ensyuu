@@ -1,17 +1,16 @@
 #include <stdio.h>
 
 int rn(int x);
-int countfn(int c,int y,int x);
-int count[9];
-long counts[9];
-int max(int nums[]);
+double count[9];
+double star[9];
 
 int main(){
-    int x,y,c,i,max;
-    long p;
-    scanf("%d",&y);
+    double x,n,max,p;
+    int c,i;
+    printf("乱数の発生回数を入力してください\n");
+    scanf("%d",&n);
     x = 1;
-    for(i = 0;i < y;i++){
+    for(i = 0;i < n;i++){
         x = rn(x);
         for(c = 0;c < 10;c++){
             if(x == c){
@@ -27,18 +26,23 @@ int main(){
             max = count[i];
         }
     }
-    p = max / 20;
+
+    p = (double)max / 20;
+
     for(c = 0;c < 10;c++){
-        counts[c] = count[c] * p;
+        star[c] = count[c] / p;
     }
+
+    printf("%d\n%d\n",max,p);
 
 
 
     for(c = 0;c < 10;c++){
         printf("%d:",c);
-        for(i = 0;i < counts[c];i++){
+        //printf("%d\n%d\n",count[1],counts[1]);
+        /*for(i = 0;i < star[c];i++){
             printf("あ");
-        }
+        }*/
         printf("%d\n",count[c]);
     }
 }
