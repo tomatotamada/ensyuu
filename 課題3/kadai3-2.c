@@ -3,39 +3,48 @@
 int rn(int x);
 int countfn(int c,int y,int x);
 int count[9];
+long counts[9];
+int max(int nums[]);
 
 int main(){
-    int x,y,i,j,p;
+    int x,y,c,i,max;
+    long p;
     scanf("%d",&y);
     x = 1;
     for(i = 0;i < y;i++){
-        printf("%d\n",rn(x));
-        for(j = 0;j < 11;j++){
-            x = rn(x);
-            printf("キンタマ%d%d\n",j,countfn(j,y,x));
+        x = rn(x);
+        for(c = 0;c < 10;c++){
+            if(x == c){
+                count[c]=count[c] + 1;
+            }
         }
     }
 
-    /*for(i = 0;i < 10;i++){
-        printf("キンタマ%d\n",countfn(i,y,x));
-    }*/
+    //最大値の検索
+    max = count[0];
+    for (i = 0; i < 10; i++) {
+        if (count[i] > max) {
+            max = count[i];
+        }
+    }
+    p = max / 20;
+    for(c = 0;c < 10;c++){
+        counts[c] = count[c] * p;
+    }
 
+
+
+    for(c = 0;c < 10;c++){
+        printf("%d:",c);
+        for(i = 0;i < counts[c];i++){
+            printf("あ");
+        }
+        printf("%d\n",count[c]);
+    }
 }
 
 int rn(int x){
     x = (11 * x + 11) % 10;
-    /*if(x == 0){
-        x = 10;
-    }*/
     return x;
 }
 
-int countfn(int c,int y,int x){
-    int i;
-    for(i = 0;i < y;i++){
-        if(c == rn(x)){
-            count[c] = count[c] + 1;
-        }
-    }
-    return count[c];
-}
