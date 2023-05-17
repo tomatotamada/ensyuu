@@ -1,18 +1,18 @@
 #include <stdio.h>
 
-void psquare (int *x){
-    printf(“Kari-Hikisu x ¥t %p ¥t %p¥n”, &x, x);
-    *x = (*x)*(*x);
+void pinc(int *x,int d){
+    printf("Kari-Hikisu x  %p  %p\n", &x, x);
+    *x = (*x)+(d);
     }
 
 int main(void){
-    int b, x;
-    printf(“INPUT AN INTEGER ”);
-    scanf(“%d”, &x);
+    int b, x,d;
+    printf("INPUT AN INTEGER \n");
+    scanf("%d %d", &x,&d);
     b = x;
-    printf(“ ¥t ADDRESS ¥t VALUE¥n”);
-    printf(“Jitsu-Hikisu x ¥t %p ¥t %d¥n”, &x, x);
-    psquare(&x);
-    printf(“SQUARE of %d IS %d．¥n”, b, x);
+    printf("2つの数字を入力してください\n");
+    printf("Jitsu-Hikisu x  %p  %d\n", &x, x);
+    pinc(&x,d);
+    printf("%d + %d = %d．\n", b,d,x);
     return 0;
     } 
