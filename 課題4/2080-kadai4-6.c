@@ -8,16 +8,14 @@ int main(void){
     printf("x  %p  %d\n", &x, x);
     printf("y  %p  %d\n", &y, y);
 
-    tmp = y;
     p = &x;
 
     printf(" exchange x and y\n");
-    printf("x  %p  %d\n", p,tmp);
+    printf("x  %p  %d\n", p,*p);
 
-    tmp = x;
     p = &y;
 
-    printf("y  %p   %d\n", p,tmp);
+    printf("y  %p   %d\n", p,*p);
 
     return 0;
     }
