@@ -5,7 +5,7 @@
             "includePath": [
                 "c:\\Users\\death\\OneDrive\\Desktop\\ensyu/**"
             ],
-            "compilerPath": "",
+            "compilerPath": "C:/cygwin64/bin/gcc.exe",
             "intelliSenseMode": "windows-gcc-x64",
             "compilerArgs": [
                 ""
@@ -30,6 +30,20 @@
             ],
             "compilerPath": "gcc",
             "intelliSenseMode": "windows-msvc-x64"
+        },
+        {
+            "name": "MinGW",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:\\MinGW\\include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "C:/MinGW/bin/gcc.exe",
+            "intelliSenseMode": "gcc-x64"
         }
     ],
     "version": 4
