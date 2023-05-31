@@ -28,8 +28,8 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "gcc",
-            "intelliSenseMode": "windows-msvc-x64"
+            "compilerPath": "C:/MinGW/bin/gcc.exe",
+            "intelliSenseMode": "gcc-x64"
         },
         {
             "name": "MinGW",
