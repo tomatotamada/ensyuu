@@ -7,7 +7,7 @@ int rn(int x);
 int main(void){
     int n,i,j,x,stari[10];
     int count[10] = {};
-    double p[10] = {},t,star[10],max = 0;
+    double p[10] = {},t,star[10] = {},max = 0;
 
     printf("乱数の発生回数を入力してください\n");
     scanf("%d",&n);
@@ -90,14 +90,22 @@ int main(void){
 
 
     for(i=0;i<10;i++){
-        star[i] = p[i] * t;
+        star[i] = count[i] * t;
+        //printf("%f\n",star[i]);
         stari[i] = (int)star[i];
-        for(j=0;j<stari[i];i++){
-            printf("?");
+        //printf("%d\n",stari[i]);
+
+        printf("%d:",i);
+
+        for(j=0;j<stari[i];j++){
+            printf("*");
         }
-        printf("%d\n",stari[i]);
-        printf("\n");
+
+        printf("   \t%d\n",count[i]);
     }
+
+    printf("===================================\n");
+    printf("TOTAL                    \t%d",n);
 
 }
 
