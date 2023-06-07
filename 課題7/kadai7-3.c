@@ -20,7 +20,7 @@ void DeleteEvenCell();
 
 int main(void){
     int x;
-    char *comand;
+    char comand[2];
 
     while(1){
         printf("コマンドを入力してください(i,d,p,n,e,s,x)\n");
@@ -29,8 +29,10 @@ int main(void){
         if (strcmp(comand,"d") == 0)
         {
             //データ削除
-            scanf("%d\n",&x);
+            printf("削除したい数字を入れてください>\n");
+            scanf("%d",&x);
             DeleteCell(x);
+            printf("終わり\n");
         }else if(strcmp(comand,"p") == 0){
             //正のデータ削除
             DeletePositiveCell();
@@ -93,12 +95,25 @@ void PrintList(){ /* 画面表示用関数 */
 //任意のセルの削除
 void DeleteCell(int x){
     CELL *p;
+    int count = 0;
     for(p = &head ; p->next != NULL ; p = p->next) {
+        count++;
         if(p->data == x) {
-            p->next = ((p->next)->next)->data;
+            break;
+        }else{
+            printf("そのような数はありません\n");
             return;
         }
     }
+    p = &head;
+    for ( int i = 0; i < count; i++)
+    {
+        p = p->next;
+    }
+    p->next = p->next->next;
+    printf("削除完了\n");
+    
+    return;
 }
 
 //正の数のセルの削除
