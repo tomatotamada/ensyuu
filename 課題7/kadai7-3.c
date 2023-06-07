@@ -32,7 +32,6 @@ int main(void){
             printf("削除したい数字を入れてください>\n");
             scanf("%d",&x);
             DeleteCell(x);
-            printf("終わり\n");
         }else if(strcmp(comand,"p") == 0){
             //正のデータ削除
             DeletePositiveCell();
@@ -65,8 +64,8 @@ int main(void){
     
 }
 
-
-void InsertCell(int x){ /* 新しいセルの挿入用関数 */
+/* 新しいセルの挿入用関数 */
+void InsertCell(int x){ 
     CELL *p, *new;
     new = (CELL *)malloc(sizeof(CELL));
     new->data = x;
@@ -84,7 +83,8 @@ void InsertCell(int x){ /* 新しいセルの挿入用関数 */
     p->next = new;
 }
 
-void PrintList(){ /* 画面表示用関数 */
+/* 画面表示用関数 */
+void PrintList(){ 
     CELL *p;
     for(p = &head ; p->next != NULL ; p = p->next)
         printf("%d ", (p->next)->data);
@@ -95,38 +95,61 @@ void PrintList(){ /* 画面表示用関数 */
 //任意のセルの削除
 void DeleteCell(int x){
     CELL *p;
-    int count = 0;
-    for(p = &head ; p->next != NULL ; p = p->next) {
-        count++;
-        if(p->data == x) {
-            break;
-        }else{
-            printf("そのような数はありません\n");
+    p = &head;
+    while((p->next)->data != x){
+        p = p->next;
+        if(p->next == NULL){
+            printf("そのような数字のセルはありません\n");
             return;
         }
     }
-    p = &head;
-    for ( int i = 0; i < count; i++)
-    {
-        p = p->next;
-    }
     p->next = p->next->next;
     printf("削除完了\n");
-    
     return;
 }
 
 //正の数のセルの削除
 void DeletePositiveCell(){
+    CELL *p;
+    p = &head;
+    while(p->next != NULL){
+        if(p->next->data > 0){
+            p->next = p->next->next;
+        }else{
+            p = p->next;
+        }
+    }
+    printf("削除完了\n");
     return;
 }
 
 //負の数のセルの削除
 void DeleteNegativeCell(){
+    CELL *p;
+    p = &head;
+    while(p->next != NULL){
+        if(p->next->data < 0){
+            p->next = p->next->next;
+        }else{
+            p = p->next;
+        }
+    }
+    printf("削除完了\n");
     return;
 }
 
+
 //偶数のセルの削除
 void DeleteEvenCell(){
+    CELL *p;
+    p = &head;
+    while(p->next != NULL){
+        if(p->next->data % 2 == 0){
+            p->next = p->next->next;
+        }else{
+            p = p->next;
+        }
+    }
+    printf("削除完了\n");
     return;
 }
