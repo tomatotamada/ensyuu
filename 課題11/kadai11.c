@@ -6,7 +6,9 @@ int main(int argc, char *argv[])
 {
     BSTREE_NODE *bstree = NULL;
     BSTREE_NODE *result;
+    BSTREE_NODE *min;
     BSTREE_TYPE x;
+    
     int i, n1;
     bstree = inputBSTree(bstree, &argv[1], argc - 1, &n1);
     if (n1 < 1 || argc - 1 - n1 < 2)
@@ -14,7 +16,7 @@ int main(int argc, char *argv[])
     printf("入力データ ");
     printBSTree(bstree, 0, 1);
 
-    //deleteMinNode(bstree,result);
+    deleteMinNode(bstree,x);
     printBSTree(bstree,0,1);
 
     for (i = n1 + 2; i < argc ; i++)

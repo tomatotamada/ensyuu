@@ -223,11 +223,29 @@ BSTREE_NODE *deleteMinNode(BSTREE_NODE *p, BSTREE_TYPE *min)
 
    if (isLeafNode(p))
    {
-      min = p;
+      *min = p->value;
+      destroyNode(p);
       return NULL;
+   }
+   else if (p->left == NULL)
+   {
+      *min = p->value;
+      return p->right;
    }
    else
    {
-      deleteMinNode(p->left, min);
+      BSTREE_NODE *q;
+
+      q = p;
+
+      while (q->left != NULL)
+      {
+         q = q->left;
+         *min = q->value;
+      }
+
+      deleteNode(p, q->value);
+
+      return p;
    }
 }
